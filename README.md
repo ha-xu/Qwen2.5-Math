@@ -1,4 +1,9 @@
-<a name="readme-top"></a>
+# 验证数学题正确率
+```
+ py evaluate.py --file_path ..\best_of_n_completions.jsonl
+```
+
+<!-- <a name="readme-top"></a>
 
 <p align="center">
     <img src="https://qianwen-res.oss-accelerate-overseas.aliyuncs.com/assets/logo/qwen2.5_math.png" width="400"/>
@@ -266,4 +271,4 @@ If you are interested in leaving a message to either our research team or produc
     <a href="#readme-top" style="text-decoration: none; color: #007bff; font-weight: bold;">
         ↑ Back to Top ↑
     </a>
-</p>
+</p> -->

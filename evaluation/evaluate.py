@@ -28,8 +28,31 @@ def evaluate(data_name, prompt_type, samples: list=None, file_path: str=None, ma
     # parse gt
     for sample in samples:
         sample['gt_cot'], sample['gt'] = parse_ground_truth(sample, data_name)
+
+        # extract final answer from predictions
+        if isinstance(sample.get("pred"), str):
+            raw_preds = [sample["pred"]]
+        else:
+            raw_preds = sample["pred"]
+
+        cleaned_preds = []
+        for p in raw_preds:
+            if not isinstance(p, str):
+                cleaned_preds.append("")
+            else:
+                cleaned_preds.append(extract_answer(p, data_name))
+
+        sample["pred"] = cleaned_preds
     params = [(idx, pred, sample['gt']) for idx, sample in enumerate(samples) for pred in sample['pred']]
 
+        # ---- DEBUG PRINT ----
+    # print("\n===== DEBUG: First 3 samples after parsing ground truth =====")
+    # for i, sample in enumerate(samples[:3]):   
+    #     print(f"\n--- Sample {i} ---")
+    #     print("idx:", sample.get("idx"))
+    #     print("gt_cot:", repr(sample.get("gt_cot")))
+    #     print("gt:", repr(sample.get("gt")))
+    #     print("pred:", sample.get("pred"))
     scores = []
     timeout_cnt = 0 
 
