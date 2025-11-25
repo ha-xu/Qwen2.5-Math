@@ -3,12 +3,9 @@
 Before the evaluation, please install the required packages with the following command:
 
 ```bash
-cd latex2sympy
-pip install -e .
-cd ..
-pip install -r requirements.txt 
-pip install vllm==0.5.1 --no-build-isolation
-pip install transformers=4.42.3
+cd evaluation
+conda create -n qwen-math python=3.11 && conda activate qwen-math
+pip install -r requirements.txt
 ```
 跑这个代码
 ```
