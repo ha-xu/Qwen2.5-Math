@@ -5,11 +5,18 @@ Before the evaluation, please install the required packages with the following c
 ```bash
 cd evaluation
 conda create -n qwen-math python=3.11 && conda activate qwen-math
+cd latex2sympy/
+pip install -e .
+cd ..
 pip install -r requirements.txt
 ```
 跑这个代码
 ```
  py evaluate.py --file_path ..\best_of_n_completions.jsonl
+```
+或者
+```
+ python evaluate.py --file_path ..\best_of_n_completions.jsonl
 ```
 
 <!-- <a name="readme-top"></a>
